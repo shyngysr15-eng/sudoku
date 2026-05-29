@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  --color-brand-green-100: #e2fbd7;
+  --color-brand-green-500: #58cc02;
+  --color-brand-green-600: #46a302;
+  --color-brand-green-700: #388201;
+
+  --color-brand-orange-100: #ffecd2;
+  --color-brand-orange-500: #ff9600;
+  --color-brand-orange-600: #e07f00;
+
+  --color-brand-blue-100: #ddf4ff;
+  --color-brand-blue-500: #1899d6;
+  --color-brand-blue-600: #1480b3;
+
+  --color-brand-purple-100: #f3e8ff;
+  --color-brand-purple-500: #a855f7;
+
+  --color-brand-coral-100: #ffe4e1;
+  --color-brand-coral-500: #ff4b4b;
+  --color-brand-coral-600: #ea2b2b;
+
+  --color-brand-yellow-100: #fff9db;
+  --color-brand-yellow-500: #ffc800;
+
+  --animate-pulse-subtle: pulse-subtle 2s infinite ease-in-out;
+  --animate-bounce-subtle: bounce-subtle 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Custom global overrides */
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Duolingo 3D Button Custom styles */
+.btn-3d-green {
+  background-color: var(--color-brand-green-500);
+  border-bottom: 4px solid var(--color-brand-green-700);
+  color: white;
+  transition: all 0.1s ease;
+  font-family: 'Outfit', sans-serif;
+}
+.btn-3d-green:active {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+.btn-3d-orange {
+  background-color: var(--color-brand-orange-500);
+  border-bottom: 4px solid #c2410c;
+  color: white;
+  transition: all 0.1s ease;
+  font-family: 'Outfit', sans-serif;
+}
+.btn-3d-orange:active {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+.btn-3d-blue {
+  background-color: var(--color-brand-blue-500);
+  border-bottom: 4px solid #0f6f9c;
+  color: white;
+  transition: all 0.1s ease;
+  font-family: 'Outfit', sans-serif;
+}
+.btn-3d-blue:active {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+.btn-3d-white {
+  background-color: white;
+  border: 2px solid #e2e8f0;
+  border-bottom: 4px solid #cbd5e1;
+  color: #475569;
+  transition: all 0.1s ease;
+  font-family: 'Outfit', sans-serif;
+}
+.btn-3d-white:active {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+/* Custom animations for bento cards */
+.bento-card {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+.bento-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom scroll snap for mobile feed */
+.snap-feed-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100%;
+}
+.snap-feed-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
