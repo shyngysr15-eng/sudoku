@@ -182,14 +182,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-slate-900 md:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] md:from-slate-800 md:via-slate-950 md:to-black py-4 px-2 overflow-hidden relative">
+    <div className="min-h-[100dvh] h-[100dvh] md:h-auto w-full flex items-center justify-center bg-slate-900 md:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] md:from-slate-800 md:via-slate-950 md:to-black py-4 px-2 overflow-hidden relative">
       
       {/* Decorative blurred backgrounds on desktop */}
       <div className="hidden md:block absolute -top-40 -left-40 w-96 h-96 bg-brand-blue-500 rounded-full blur-[150px] opacity-15"></div>
       <div className="hidden md:block absolute -bottom-40 -right-40 w-96 h-96 bg-brand-green-500 rounded-full blur-[150px] opacity-10"></div>
 
       {/* Main iPhone Shell Wrapper Frame */}
-      <div className="w-full max-w-[380px] h-screen md:h-[820px] bg-white rounded-none md:rounded-[44px] md:border-[10px] md:border-slate-800 md:shadow-2xl overflow-hidden relative flex flex-col shadow-inner">
+      <div className="w-full max-w-[380px] h-[100dvh] md:h-[820px] bg-white rounded-none md:rounded-[44px] md:border-[10px] md:border-slate-800 md:shadow-2xl overflow-hidden relative flex flex-col shadow-inner">
         
         {/* Dynamic Island Notch (Only on desktop frame) */}
         <div className="hidden md:flex absolute top-2 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-900 rounded-full z-40 items-center justify-center">

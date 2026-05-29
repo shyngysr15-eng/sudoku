@@ -121,7 +121,7 @@ export default function SwiperShell({ children, activeIndex, setActiveIndex }: S
           dragConstraints={{ top: 0, bottom: 0 }}
           dragElastic={0.2}
           onDragEnd={handleDragEnd}
-          className="w-full h-full cursor-grab active:cursor-grabbing absolute inset-0 z-0"
+          className="w-full h-full cursor-grab active:cursor-grabbing absolute inset-0 z-0 touch-none"
         >
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
