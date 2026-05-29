@@ -41,71 +41,43 @@ export default function SwiperShell({ children, activeIndex, setActiveIndex }: S
     }, 450); // cooldown matches animation duration
   };
 
-  // Drag handler for Framer Motion
+  // Drag handler for Framer Motion (Horizontal swipe)
   const handleDragEnd = (event: any, info: any) => {
-    const threshold = 60;
-    const velocityThreshold = 200;
-    const offsetY = info.offset.y;
-    const velocityY = info.velocity.y;
+    const threshold = 50;
+    const velocityThreshold = 150;
+    const offsetX = info.offset.x;
+    const velocityX = info.velocity.x;
 
-    if (offsetY < -threshold || velocityY < -velocityThreshold) {
-      // Swipe up -> Next screen
+    if (offsetX < -threshold || velocityX < -velocityThreshold) {
+      // Swipe left -> Next screen
       const nextIndex = (activeIndex + 1) % SCREENS.length;
       transitionTo(nextIndex, 1);
-    } else if (offsetY > threshold || velocityY > velocityThreshold) {
-      // Swipe down -> Prev screen
+    } else if (offsetX > threshold || velocityX > velocityThreshold) {
+      // Swipe right -> Prev screen
       const prevIndex = (activeIndex - 1 + SCREENS.length) % SCREENS.length;
       transitionTo(prevIndex, -1);
     }
   };
 
-  // Wheel scroll handler (for desktop mice) with debounce/throttle
-  useEffect(() => {
-    let lastWheelTime = 0;
-    
-    const handleWheel = (e: WheelEvent) => {
-      const now = Date.now();
-      if (now - lastWheelTime < 800) return; // 800ms cooldown
-
-      const deltaY = e.deltaY;
-      const threshold = 15;
-
-      if (deltaY > threshold) {
-        // Scroll down -> Next screen
-        lastWheelTime = now;
-        const nextIndex = (activeIndex + 1) % SCREENS.length;
-        transitionTo(nextIndex, 1);
-      } else if (deltaY < -threshold) {
-        // Scroll up -> Prev screen
-        lastWheelTime = now;
-        const prevIndex = (activeIndex - 1 + SCREENS.length) % SCREENS.length;
-        transitionTo(prevIndex, -1);
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: true });
-    return () => window.removeEventListener('wheel', handleWheel);
-  }, [activeIndex]);
-
-  // Framer Motion sliding animations
+  // Framer Motion sliding animations (Horizontal transitions)
   const slideVariants = {
     initial: (dir: number) => ({
-      y: dir > 0 ? '100%' : '-100%',
+      x: dir > 0 ? '100%' : '-100%',
       opacity: 0.9,
     }),
     animate: {
-      y: 0,
+      x: 0,
       opacity: 1,
       transition: {
-        y: { type: 'spring', stiffness: 350, damping: 30 },
+        x: { type: 'spring', stiffness: 350, damping: 30 },
         opacity: { duration: 0.2 },
       },
     },
     exit: (dir: number) => ({
-      y: dir > 0 ? '-100%' : '100%',
+      x: dir > 0 ? '-100%' : '100%',
       opacity: 0.9,
       transition: {
-        y: { type: 'spring', stiffness: 350, damping: 30 },
+        x: { type: 'spring', stiffness: 350, damping: 30 },
         opacity: { duration: 0.2 },
       },
     }),
@@ -117,11 +89,11 @@ export default function SwiperShell({ children, activeIndex, setActiveIndex }: S
       {/* Active Screen Area with Snapping Slides */}
       <div className="flex-1 w-full h-full relative overflow-hidden">
         <motion.div
-          drag="y"
-          dragConstraints={{ top: 0, bottom: 0 }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.2}
           onDragEnd={handleDragEnd}
-          className="w-full h-full cursor-grab active:cursor-grabbing absolute inset-0 z-0 touch-none"
+          className="w-full h-full cursor-grab active:cursor-grabbing absolute inset-0 z-0 touch-pan-y"
         >
           <AnimatePresence initial={false} custom={direction}>
             <motion.div

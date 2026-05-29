@@ -182,7 +182,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-[100dvh] h-[100dvh] md:h-auto w-full flex items-center justify-center bg-slate-900 md:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] md:from-slate-800 md:via-slate-950 md:to-black py-4 px-2 overflow-hidden relative">
+    <div className="min-h-[100dvh] h-[100dvh] md:h-auto w-full flex items-center justify-center bg-slate-900 md:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] md:from-slate-800 md:via-slate-950 md:to-black md:py-4 md:px-2 overflow-hidden relative">
       
       {/* Decorative blurred backgrounds on desktop */}
       <div className="hidden md:block absolute -top-40 -left-40 w-96 h-96 bg-brand-blue-500 rounded-full blur-[150px] opacity-15"></div>
@@ -197,7 +197,7 @@ export default function Home() {
         </div>
 
         {/* Mobile Phone Status Bar */}
-        <div className="w-full h-11 bg-white/95 backdrop-blur-sm flex items-center justify-between px-6 z-30 select-none border-b border-slate-50 relative shrink-0">
+        <div className="hidden md:flex w-full h-11 bg-white/95 backdrop-blur-sm items-center justify-between px-6 z-30 select-none border-b border-slate-50 relative shrink-0">
           {/* Time Indicator */}
           <span className="text-xs font-black text-slate-800 tracking-tight">{currentTime}</span>
           
@@ -431,7 +431,7 @@ export default function Home() {
         </div>
 
         {/* Home Button Indicator (Apple-like bottom home line) */}
-        <div className="w-full h-5 bg-white/95 backdrop-blur-sm flex items-center justify-center z-30 shrink-0 select-none pb-1 relative">
+        <div className="hidden md:flex w-full h-5 bg-white/95 backdrop-blur-sm items-center justify-center z-30 shrink-0 select-none pb-1 relative">
           <div className="w-32 h-1 bg-slate-900/40 rounded-full"></div>
         </div>
 
