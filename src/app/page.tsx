@@ -13,7 +13,7 @@ import { Difficulty } from '@/utils/sudokuGenerator';
 
 export default function Home() {
   // Global States
-  const [xp, setXp] = useState<number>(240);
+  const [xp, setXp] = useState<number>(2450);
   const [streak, setStreak] = useState<number>(7);
   const [solvedDates, setSolvedDates] = useState<string[]>([
     '2026-05-24',
